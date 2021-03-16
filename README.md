@@ -1,1 +1,2 @@
-# cadernos de estudos - Alura
+# caderno de estudos - Alura
+# futuro projeto: MyWikiLinguee - Site interativo e educativo voltado para iniciantes em Programção; Com dicas, curiosidades e informações importantes de cada linguagem do "universo dev".
