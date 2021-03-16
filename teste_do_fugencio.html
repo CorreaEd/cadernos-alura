@@ -1,0 +1,34 @@
+<meta charset="UTF-8">
+<br><br>
+
+<p>Fugêncio aprendeu que a estrutura mínima para criar seus programas é:</p>
+<pre class="prettyprint"><code>&lt;meta charset&#61;&#34;UTF-8&#34;&gt;
+&lt;script&gt;
+&lt;/script&gt;</code></pre>
+<p>Confiante do seu entendimento, ele criou o arquivo <code>teste_do_fugencio.html</code> e escreveu o seguinte código:</p>
+<pre class="prettyprint"><code>&lt;meta charset&#61;&#34;UTF-8&#34;&gt;
+
+alert(&#34;Este é um popup feito com JavaScript&#34;);
+&lt;script&gt;
+    &lt;h1&gt;Primeiro programa&lt;/h1&gt;
+&lt;/script&gt;</code></pre>
+<p>Depois de abrir em seu navegador ele verificou duas coisas:</p>
+<p><strong>1</strong> - O popup da instrução alert não foi exibido, além disso a instrução foi indevidamente exibida na página.</p>
+<p><strong>2</strong> - Para entender o que houve de errado, ele abriu o depurador (debugger) que todo navegador tem, foi na aba console e viu que há um erro na linha 5.</p>
+<p>O que deveria ser alterado para que o código de Fugêncio funcionasse?</p>
+
+<p>Fugêncio confundiu-se, ele escreveu código HTML no mundo JavaScript e código JavaScript no mundo HTML. Mas de que mundo estamos falando mesmo? Quando falamos do mundo do JavaScript, nos referimos a tudo que esta entre as tags <code>&lt;script&gt;...&lt;/script&gt;</code>. </p>
+<p>Quando o navegador encontra a TAG <code>&lt;script&gt;..&lt;/script&gt;</code>  ele passa a interpretar todo aquele código como JavaScript, é como se ele trocasse de óculos temporariamente e esses óculos lhe fornecessem um entendimento especial daquele código. Tudo que está fora da TAG <code>script</code> é considerado código HTML e o navegador irá analisar este código como tal. Não existe no mundo HTML a instrução <code>alert</code> e nem a TAG <code>&lt;h1&gt;</code> no mundo JavaScript, contudo, podemos corrigir o código de Fugêncio mudando o código de lugar. </p>
+<p>O código final fica assim:</p>
+<pre class="prettyprint"><code>&lt;meta charset&#61;&#34;UTF-8&#34;&gt;
+
+&lt;h1&gt;Primeiro programa&lt;/h1&gt;
+&lt;script&gt;
+    alert(&#34;Este é um popup feito com JavaScript&#34;);
+
+&lt;/script&gt;</code></pre><p>Agora  temos cada instrução no seu devido lugar!</p>
+
+<h1>Primeiro programa</h1>
+<script>
+    alert("Este é um popup feito com JavaScript");           
+</script>

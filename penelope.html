@@ -1,0 +1,28 @@
+<meta charset="UTF-8">
+<br><br>
+
+<p>Penélope começou o curso de lógica de programação da Alura e já se deparou com o seguinte problema:<br>
+Ela criou o arquivo <code>victoria.html</code> e dentro dele escreveu o seguinte código que deveria exibir dois alertas (pop ups) na tela:</p>
+<pre class="prettyprint"><code>&lt;meta charset&#61;&#34;UTF-8&#34;&gt;
+
+&lt;script&gt;
+&lt;/script&gt;
+
+alert(&#34;Olá, este é meu primeiro programa!&#34;);
+alert(&#34;Gostaram?&#34;);</code></pre>
+<p>O problema é que os pop ups não são exibidos e o código JavaScript é exibido como conteúdo da página. </p>
+<p>Como deve ser o código de Penélope para que os alertas sejam mostrados corretamente?</p>
+
+As duas instruções <code>alert</code> são feitas fora do mundo JavaScript, ou seja, estão sendo feitas fora da TAG <code>&lt;script&gt;..&lt;/script&gt;</code>. Isso faz com que o HTML entenda as instruções como texto comum exibindo-as no navegador. </p>
+<p>Para resolver esse problema, basta mover as duas instruções para dentro da TAG script, ou seja, elas serão parte do conteúdo da TAG. Alterando teremos:</p>
+<pre class="prettyprint"><code>&lt;meta charset&#61;&#34;UTF-8&#34;&gt;
+&lt;script&gt;
+    alert(&#34;Olá, este é meu primeiro programa!&#34;);
+    alert(&#34;Gostaram?&#34;);
+&lt;/script&gt;</code></pre>
+<p>Agora, os dois alertas são exibidos como pop up e assim a página é carregada.</p>
+
+<script>
+alert("Olá, este é meu primeiro programa!");
+alert("Gostaram?");
+</script>
