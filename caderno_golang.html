@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html language="pt-br">
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css"  href="estilo_.css" />
+<title>Golang</title>
+
+<head>
+<h1>Caderno de Anotações - Golang</h1>
+<h2>A linguagem de programação do Google</h2>
+</head>
+
+<body>
+<h3>Introdução ao Go</h3>
+
+<p>O Google estava com um problema, pois muitos dos seus sistemas eram feitos em C++ e em C, e o processo de compilar esses programas, para gerar um executável, era complicado e demorado.</p>
+
+<p>Com isso, os engenheiros do Google tiveram a ideia de criar uma nova linguagem de programação, surgindo daí o Go.</p>
+
+<p>Essa linguagem, diferentemente de outras linguagens, como C, Python e Java, é uma linguagem moderna, visto que ela foi criada em 2009, aproximadamente 20 anos depois que a maioria das outras linguagens foi criada. E nesses 20 anos, a computação foi evoluindo, evoluções essas que foram incorporadas no Go.</p>
+    
+<p>A primeira dessas evoluções faz com que o processo de compilação de um programa em Go é bem rápido, justamente o problema do Google. Um outra questão é a modularização da linguagem, com as suas funcionalidades espalhadas em pacotes, que são importados na nossa aplicação conforme a nossa necessidade.</p>
+    
+<p>Além disso, a sua sintaxe tem em torno de 25 palavras-chave, ou seja, uma sintaxe bem curta, fazendo com que o nosso código fique simples de se entender. Apesar da linguagem ser simples, ela é bem convencionada, já que o Go foi feito para ser uma linguagem rápida de desenvolvimento, então há certas convenções (algumas delas forçadas pela linguagem) que fazem com que o foco do programador seja em desenvolver código, e não em discutir como ele deve ser feito.</p>
+    
+<p>Outra coisa interessante é o jeito com que o Go trabalha com concorrência, paralelismo da linguagem. Essa é uma parte avançada, que não é o nosso foco, que é a introdução à linguagem, vendo a sua sintaxe, convenções, pacotes, tudo isso criando um projeto, um monitorador de sites, para colocar todos os sites que administramos e ficar verificando se o site está online ou não, e guardar um log para sabermos o horário em que o site estava online ou offline.</p>
+
+&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;
+
+<h3>Instalação do Go</h3>
+
+<p>Se queremos aprender a trabalhar com a linguagem de programação Go, primeiramente devemos instalá-la.</p>
+
+<p> Para isso, no site da linguagem, há um link de download <a href="https://golang.org/dl/" target="_blank">https://golang.org/dl/</a>.</p>
+
+<p>Para verificar a sua instalação, executamos no terminal/linha de comando (CMD):<br>
+<blockquote><li><b>go version</b></li></blockquote></p>
+
+<p>Executando o comando acima, teremos uma saída parecida com esta:</p>
+<blockquote><b>"go version go1.16.2 windows/amd64"</b></blockquote></p>
+
+<p>Mas além da instalação do Go, devemos seguir outros padrões para trabalhar com essa linguagem.</p>
+<p>Por exemplo, o que chamamos de Go Workspace</p>
+
+&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;
+
+<h3>Go Workspace</h3>
+
+<p>No momento da instalação é definido um local onde ficará todo o nosso código Go, esse local é o <strong><em>Go Workspace</em></strong>. Por padrão essa pasta deve ser chamada <strong>go</strong> e deve ficar na raiz do nosso usuário. Isso vale para todos os sistemas operacionais, ou seja, na pasta do nosso usuário, nós criamos a pasta <strong>go</strong>.</p>
+<p>Além disso, o <strong><em>Go Workspace</em></strong> deve possuir três pastas. A primeira delas é a <strong>pkg</strong>, onde ficará os pacotes compartilhados das nossas aplicações, pois o Go é uma linguagem bastante modular, dependendo bastante de pacotes que vamos importando no nosso código, veremos isso mais à frente. Além da pasta <strong>pkg</strong>, também deve ter a pasta <strong>src</strong>, onde escreveremos o código fonte de cada aplicação, e a pasta <strong>bin</strong>, onde ficará os compilados do nosso código Go.</p>
+<p>A estrutura final do <strong><em>Go Workspace</em></strong> ficará assim:</p>
+<pre class="prettyprint"><code>pasta-do-usuario/
+└── go
+    ├── bin
+    ├── pkg
+    └── src</code></pre> 
+
+&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;
+
+<h3>Editor de Texto</h3>
+
+<p>Precisamos de um editor de texto que nos ajude a codificar em Go.<br>
+Um editor de texto que é bastante integrado com a linguagem, que será utilizado neste treinamento, é o <strong>Visual Studio Code</strong>.</p>
+
+<p>Sabendo disso, podemos fazer o nosso primeiro programa em Go, o famoso <em>Hello World</em>. Então, dentro da pasta <strong>go/src</strong>, vamos criar a pasta <strong>hello</strong>.</p>
+<p>E através do Visual Studio Code, nós abrimos essa pasta e dentro dela criamos o programa <strong>hello.go</strong>.</p>
+<p>Assim que criamos o arquivo, recebemos uma notificação do Visual Studio Code: <em>The &#39;Go&#39; extension is recommended for this file type</em>.</p>
+<p>Ou seja, existem extensões do editor que nos facilita o trabalho com a linguagem. Ao clicar em <em>Show Recommendations</em>, nós vemos essas extensões, e uma delas é a <strong>Go</strong>, do autor <strong>lukehoban</strong>.</p>
+<p>Nós podemos instalar essa extensão, clicando em <em>Install</em> e logo em seguida em <em>Reload</em>, para recarregarmos a janela. No momento em que a janela for recarregada, a extensão será habilitada, mas ela tem algumas dependências, conforme é exibida na notificação do Visual Studio Code. Então, basta clicar em <em>Install All</em>, para instalar todas as dependências, que facilitarão a nossa codificação em Go.</p>
+<p>Por isso é uma recomendação utilizar o Visual Studio para programar Go, pois ele facilita muito o nosso processo. Algumas funcionalidade desse editor serão exploradas ao londo do treinamento</p>
+<p>Após o término da instalação das dependências, no próximo vídeo vamos dar início ao nosso primeiro programa em Go, o <em>Hello World</em>.</p>
+
+<p>Obs.: <code><b>String</code></b> é um nome bastante comum para texto, dados do tipo &#34;texto&#34;, em programação.<br>
+Portanto, temos um texto não esperado. Retornaremos ao editor de texto no ponto indicado pelo console, isto é, a linha 9, onde se localiza o erro.</p>
+
+<p>Toda linguagem de programação de qualidade possui algum mecanismo capaz de indicar onde há erros de sintaxe em seu código.</p>
+
+<p>Nesta aula, também criamos o arquivo primeiro_teste.html</p>
+<a href=links\primeiro_teste.html target="_blank">primeiro_teste.html - Acessar Aqui!</a><br>
+<p>Obs.: Quando inserir links, não esquecer de usar a tranqueira do <b>target=&#34;_blank&#34;</b> após o <b>&lt;a href=&#34;link aqui&#34;&gt;</b> porque se não, ao clicar no link, não irá abrir em nova guia e você vai acabar fechando essa droga de caderno de anotações ao consultar o link KKK - Tô puto! </p>
+
+&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;
+
+<p><blockquote><b>No passado, era preciso instalar os mais diversos programas, muitos deles pagos, para que fosse possível dar os primeiros passos no mundo da programação.<br>
+    Isso acabava espantando os candidatos à programação.<br>
+    A boa notícia é que as coisas mudaram!</p></b>
+
+    <p>Temos as seguintes afirmações sobre o parágrafo anterior:</p>
+    
+    <p>A) Os sistemas operacionais mais populares do mercado (Windows, Linux, Mac) já vêm com um navegador web padrão e todo navegador é capaz de interpretar um código escrito por nós.</p>
+    
+    <p>B) Uma das linguagens que o navegador compreende é a HTML.</p>
+    
+    <p>C) Um navegador é um poliglota.</p>
+    
+    <p><b>Qual das opções abaixo é verdadeira a respeito das afirmativas anteriores?</b></p>
+
+<p><b>Resposta:</b> Todas são verdadeiras!<br>
+Por incrível que pareça, a mesma ferramenta que você utiliza para navegar na web será a mesma que você utilizará para interpretar o código que você escreverá.<br>
+Além disso, ele é capaz de entender mais de uma linguagem, por isso chamamos de &#34;poliglota&#34;, pois consegue entender mais de um tipo de linguagem! No caso <code><b>HTML</code></b> e <code><b>Javascript</code></b>.<br>
+E como todo sistema operacional já vem com um navegador padrão instalado, isso tornará ainda mais fácil a nossa jornada no mundo da programação.</p></blockquote>
+
+&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;
+
+<p><b>[Anotação sobre organização e disciplina]</b></p>
+<p>Quando começamos a programar é comum ocorrer uma explosão de arquivos e cada arquivo equivale a um programa. Se salvarmos cada um dos arquivos diretamente na área de trabalho teremos todos eles espalhados. Você vai querer perder aquele código todo especial que fez porque apagou um arquivo por engano?</p>
+<p>É por isso que um dos primeiros pedidos do curso foi para criar a pasta &#34;lógica&#34;. Ela servirá para armazenar todos os arquivos que forem criados ao longo do treinamento. Programar requer disciplina e organização e por mais simples que seja esse ato, é o mínimo que podemos fazer para termos um ambiente organizado.</p>
+
+<p><b>[Anotação sobre extensão de arquivos]</b></p>
+<p>Você já utilizou um processador de texto ou planilha? Por exemplo, arquivos do Microsoft Word possuem a extensão <code><b>.doc</code></b> ou <code><b>.docx</code></b>. Assim, caso você tenha salvo um arquivo chamado &#34;receitas&#34;, dentro do computador ele será &#34;receitas.docx&#34;. A mesma coisa serve para as planilhas do Excel, por exemplo, uma planilha chamada &#34;custos&#34; quando salva no computador agrega a extensão <code><b>.xls</code></b>, sendo assim, o nome completo do arquivo é <code><b>custos.xls</code></b>.</p>
+
+<p><b>[Anotação sobre convenção]</b></p>
+<p>Assim como o condomínio de um prédio possui uma convenção, o mundo da programação é repleto delas. Por exemplo, uma convenção muito utilizada é criar arquivos com letras minúsculas e se houver mais de uma palavra usamos um &#34;_&#34; como separador. Além disso, não usamos acentos no nome dos arquivos. É claro que, assim como a convenção de um condomínio pode não ser seguida, nada impede que o programador crie o arquivo do jeito que quiser. E, da mesma forma que um morador que comete infrações não será bem visto pelos demais condôminos, o mesmo ocorre com o programador.</p>
+
+&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;
+
+<p><blockquote><b>Todo navegador (ou Browser, em inglês) consegue ler e entender HTML que é a linguagem utilizada para a apresentação de dados e informações.<br>
+
+    <p>Sobre o HTML podemos dizer:</p></b>
+
+    <p>Temos as seguintes afirmações sobre o parágrafo anterior:</p>
+    
+    <p>A) Sua sigla significa Hyper Text Markup Language, ou seja, é uma linguagem de marcação de texto caracterizada pelo uso de TAGS.</p>
+    
+    <p>B) TAG indicam instruções especiais a serem interpretadas pelo navegador.</p>
+    
+    <p>C) A TAG <code><b>&lt;h1&gt;</code></b> é usada para criar links para que o usuário seja levado de uma página para outra.</p>
+    
+    <p>D) <code><b>&lt;meta&gt;</code></b> é o exemplo de uma TAG HTML.</p>
+    
+    <p><b>Qual das opções abaixo é verdadeira a respeito das afirmativas anteriores?</b></p>
+
+<p><b>Resposta:</b> Apenas a &#34;C&#34; é FALSA!<br>
+    HTML realmente significa Hyper Text Markup Language!;<br>
+    A TAG <code><b>&lt;h1&gt;</code></b> é usada para exibir o primeiro título de uma página;<br>
+        O conteúdo da TAG <code><b>&lt;h1&gt;</code></b>, isto é, o texto &#34;Bem-vindo!&#34; será exibido em destaque na página.<br>
+        Veja que ele está entre a tag de abertura <code><b>&lt;h1&gt;</code></b> e fechamento <code><b>&lt;/h1&gt;</code></b>, por isso podemos dizer que &#34;Bem-vindo!&#34; é o conteúdo da tag <code><b>&lt;h1&gt;</code></b>.<br>
+        Para criar links, usamos a tag <code><b>&lt;a</code></b> (âncora).<br><br>
+        Ela funciona da seguinte maneira:<br>
+        Visite <code><b>&lt;a href="http://www.alura.com.br"&gt;Alura&lt;/a&gt;</b></code>!<br><br>
+        E ficará assim:<br>
+        Visite <a href=http://www.alura.com.br target="_blank">Alura</a>!</p></blockquote>
+
+&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;
+
+<p><b>[Anotação sobre tags]</b></p>
+<p>A linguagem HTML é uma linguagem baseada em tags. Sobre tags podemos dizer:
+
+<p><li>Toda tag começa com <code><b>&lt;</b></code> e termina com <code><b>&gt;</b></code>. Por exemplo, existem as tags <code><b>&lt;h1&gt;</b></code> e <code><b>&lt;a&gt;</b></code>.</li></p>
+
+<p><li>Dependendo da tag, ela pode ou não ter fechamento. Por exemplo, a tag <code><b>&lt;h1&gt;</b></code> precisa de fechamento para delimitar seu conteúdo.<br>
+            Já a tag <code><b>&lt;meta&gt;</b></code> não. Ela define o valor de diferentes atributos, como o que vimos mais cedo, o chamado <code><b>charset.</b></code></p>
+
+<p><b>[A importância da tag meta]</b></p>
+<p>Quando salvamos um arquivo texto no disco ele é salvo usando uma cadeia de caracteres (<em>character set encoding</em>). Se no editor de texto salvamos o arquivo contendo <code><b>charset</b></code> UTF-8, precisamos dar uma pista para o navegador de como ele deve ser processado. Se não fizermos isso, ele não conseguirá exibir corretamente qualquer texto acentuado.</p>
+<p>Contudo, muito cuidado! Vamos supor que acidentalmente seu editor de texto não salvou o arquivo como <code>UTF-8</code>, mas em <code>latin1</code>. Se colocarmos a tag <code>&lt;meta charset&#61;&#34;UTF-8&#34;&gt;</code> estaremos dando uma dica errada para o navegador e isso nos trará problemas na acentuação. Para resolver esse tipo de situação, podemos usar <code>&lt;meta charset&#61;&#34;latin&#34;&gt;</code> ou mudar nosso arquivo para <code>UTF-8</code>, o que é mais difícil.</p>
+<p>Pode ser que o editor de texto escolhido não siga o padrão UTF e utilize outro qualquer que nem eu ou você sabemos.</p>
+<p>Mais do que os caracteres saírem certos ou errados, o importante é aprender a lógica de programação.<br>
+O que estamos abordando serve para tornar sua experiência melhor e seu programa mais bonito. Afinal, quem não gosta de ver os acentos todos bonitinhos? :)</p>
+
+<p>Nesta aula, criamos o arquivo texto_puro.html</p>
+    <a href=links\texto_puro.html target="_blank">texto_puro.html - Acessar Aqui!</a><br><br>
+
+&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;
+
+<p><b>[Introduzindo o JavaScript]</b></p>
+<p>Apesar da maneira como é escrito, o HTML não é uma linguagem de programação propriamente dita.<br>
+Inclusive, veja que em seu nome (Hyper Text Markup Language) não há a presença da palavra "programming".<br>
+O HTML foi criado apenas para apresentar informações, isto é, sem dinamismo.</p>
+
+<p>E se quisermos fazer cálculos que variam de acordo com a entrada do usuário?<br>
+Não podemos, pois o HTML no máximo será o responsável em exibir o resultado do cálculo, mas não realizá-lo.</p>
+
+<p>Mas, o navegador não é bobo, ele conhece além da linguagem HTML outra que é totalmente dinâmica. Esta linguagem chama-se JavaScript.<br>
+Com ela podemos realizar cálculos e diversas operações úteis. Mas, você pode estar se perguntando: deixaremos de usar o HTML?<br>
+ Não! É claro que não! Usaremos HTML e JavaScript para criar programas interessantes, portanto, não se preocupe como isso será feito.</p>
+
+<p>Quando escrevemos um código JavaScript, o primeiro passo é dar uma pista ao navegador para que ele entenda que o trecho de código a ser lido é JavaScript.<br><br>
+
+Fazemos isso através:da tag <code>&lt;script&gt;</code></p>
+
+<p>Vejamos um exemplo que exibe um alerta na tela:</p>
+<p><code>&lt;meta charset&#61;&#34;UTF-8&#34;&gt;<br>
+&lt;h1&gt;Usando JavaScript pela primeira vez&lt;/h1&gt;<br>
+&lt;script&gt;<br>
+    alert(&#34;Este é um popup em JavaScript&#34;);<br>
+&lt;/script&gt;</code></p>
+
+<p>Pense que tudo que está entre <code>&lt;script&gt; ... &lt;/script&gt;</code> está no <strong>mundo JavaScript</strong>.<br>
+Sendo assim, o navegador interpretará aquele trecho de código como JavaScript.<br></p>
+
+<p>Tudo aquilo que estiver escrito fora de <code>&lt;script&gt; ... &lt;/script&gt;</code> é considerado <strong>mundo HTML</strong> e será interpretado como HTML</p>
+
+<p><b>[A instrução alert]</b></p>
+<p>A primeira instrução que aprendemos em JavaScript foi a <code><b>alert</b></code>.<br>
+A funcionalidade desta instrução é exibir um popup com o texto que definirmos.<br><br>
+
+Vejamos um exemplo:</p>
+
+<p><code>&lt;meta charset&#61;&#34;UTF-8&#34;><br>
+&lt;script&gt;<br>
+    alert(&#34;Primeira instrução JavaScript que aprendi&#34;);<br>
+&lt;/script&gt;</code></p>
+
+<p>A instrução alert recebe um texto e todo texto em JavaScript é definido entre aspas (&# 34;).</p>
+
+<p>Assim como a língua portuguesa que possui regras, toda linguagem de programação também as possui e isso não é diferente com o JavaScript.<br>
+Se não seguirmos sua sintaxe à risca, nosso código não funcionará.<br>
+Aprendemos que a instrução <code><b>alert</b></code> é capaz de exibir um <code><b>popup</b></code> na tela, inclusive ela é capaz de receber um texto que será exibido no popup.<br><br>
+
+É importante saber que o JavaScript faz distinção entre letras  MAIÚSCULAS e minúsculas, portanto se escrever &#39;Alert&#39; ou &#39;ALERT&#39; o comando não será reconhecido e o interpretador acusará um erro de sintaxe.<br><br>
+
+IMPORTANTE: Uso do ponto e vírgula no final de uma instrução JavaScript é opcional e neste treinamento não teremos problemas com sua ausência. Contudo, ao avançar nesta linguagem você verá determinados processamentos de código podem resultar em algo não esperado na ausência do ponto e vírgula. Sendo assim, vamos criar desde já o hábito de terminar uma instrução com o ponto e vírgula.</p>
+
+<p>Texto em JavaScript vem entre aspas. Mas por que isso Flávio? Porque os criadores da linguagem JavaScript quiseram assim e definiram em sua sintaxe que tudo que estiver entre aspas é um texto.<br>
+Aliás, há um termo técnico usado quando falamos de texto, este termo é <strong>string</strong>.</p>
+
+<p>Nesta aula, criamos os arquivos tio_ben.html</p>
+    <a href=links\tio_ben.html target="_blank">tio_ben.html - Acessar Aqui!</a><br>
+
+    <p>o arquivo penelope.html</p>
+    <a href=links\penelope.html target="_blank">penelope.html - Acessar Aqui!</a><br>
+
+    <p>e o arquivo teste_do_fugencio.html</p>
+    <a href=links\teste_do_fugencio.html target="_blank">teste_do_fugencio.html - Acessar Aqui!</a><br>
+
+
+    
+<br><br>Exemplo: <code><b>&lt;meta charset&#61;&#34;UTF-8&#34;&gt;</code></b><br>&#34;a&#34;
+
+</body>
+</html>
